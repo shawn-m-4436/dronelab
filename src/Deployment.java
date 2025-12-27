@@ -65,6 +65,9 @@ public class Deployment extends CanvasRectangle {
     public void deploy(Scenario scen) {
         SimParams params = scen.simParams;
 
+        // Inform all Ambulatory survivors of this deployment zone
+        Ambulatory.addDeploymentLocation(this);
+
         if (params.getSimMatrixItem() != null) {
             // We have a simulation matrix, use that
             // Set number of drones to whatever we wanted in the simulation
